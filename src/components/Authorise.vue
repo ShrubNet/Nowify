@@ -90,6 +90,8 @@ export default {
       if (grantType === 'authorization_code') {
         ;(fetchData.code = this.auth.authCode),
           (fetchData.redirect_uri = window.location.origin)
+        console.log('Authorization Code:', fetchData.code);
+        console.log('Redirect URI:', fetchData.redirect_uri);
       }
 
       if (grantType === 'refresh_token') {
@@ -97,11 +99,12 @@ export default {
       }
 
       const queryBody = new URLSearchParams(fetchData).toString()
+      console.log('Request Body:', queryBody);
 
       const clientDetails = btoa(
         `${this.auth.clientId}:${this.auth.clientSecret}`
       )
-
+      console.log('Authorization Header:', clientDetails);
       const res = await fetch(`${this.endpoints.token}`, {
         method: 'POST',
         headers: {
@@ -113,6 +116,7 @@ export default {
 
       const data = await res.json()
       const accessTokenResponse = data
+      console.log('Token Response:', data);
 
       this.handleAccessTokenResponse(accessTokenResponse)
     },
