@@ -71,7 +71,7 @@ export default {
      */
     getUrlAuthCode() {
       const urlAuthCode = currentParams.get('code')
-
+      console.log('Extracted Auth Code:', urlAuthCode); // Debugging
       if (!urlAuthCode) {
         return
       }
@@ -170,17 +170,6 @@ export default {
         )
       }
     },
-  getUrlAuthCode() {
-    const urlAuthCode = currentParams.get('code');
-    console.log('Extracted Auth Code:', urlAuthCode); // Debugging
-    if (!urlAuthCode) {
-      console.log('No auth code found in URL');
-      return;
-    }
-  
-    this.auth.authCode = urlAuthCode;
-    console.log('Auth Code set to:', this.auth.authCode);
-  },
     /**
      * Set the initial Spotify authorisation URL
      * in which the user will be redirected to.
