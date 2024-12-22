@@ -87,9 +87,9 @@ export default {
         grant_type: grantType
       }
 
-      if (grantType === 'authorization_code') {
-        ;(fetchData.code = this.auth.authCode),
-          (fetchData.redirect_uri = `${window.location.origin}/callback`;)
+    if (grantType === 'authorization_code') {
+        fetchData.code = this.auth.authCode;
+        fetchData.redirect_uri = `${window.location.origin}/callback`;
         console.log('Authorization Code:', fetchData.code);
         console.log('Redirect URI:', fetchData.redirect_uri);
       }
