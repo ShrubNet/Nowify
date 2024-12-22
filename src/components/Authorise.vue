@@ -60,9 +60,10 @@ export default {
      * be redirected back to the app.
      */
     initAuthorise() {
-      this.setAuthUrl()
-      window.location.href = `${this.endpoints.auth}?${searchParams.toString()}`
+      this.setAuthUrl(); // This should prepare the URL
+      window.location.href = `${this.endpoints.auth}?${searchParams.toString()}`; // This should trigger the redirect
     },
+    
 
     /**
      * Check to see if the URL contains an auth code
