@@ -173,8 +173,6 @@ export default {
               .replace(/^&/, '?')
         )
       }
-      const data = await res.json();
-      console.log('Full Token Response:', data);
     },
     /**
      * Set the initial Spotify authorisation URL
